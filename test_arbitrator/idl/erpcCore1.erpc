@@ -1,0 +1,20 @@
+program erpcCore1
+
+enum lockErrors_t
+{
+  lErrorOk_c = 0,
+  lErrorOutofMemory_c,
+  lErrorMaxError_c
+}
+
+interface Core1 {
+
+    Core1_demoHello1(binary txInput) -> binary
+    
+    Core1_demoHello2(in binary txInput,out binary txOutput) -> lockErrors_t    
+    
+    Core1_demoHello3(in binary txInput,out int8[64] txOutput,out int32 size) -> lockErrors_t
+
+    callback(binary txInput) -> void
+}
+
