@@ -1,0 +1,30 @@
+/*! 定义项目名称,也是所有生成的源码文件名前缀 */
+program erpcdemo
+
+/*! 定义返回状态枚举类型 */
+enum lockErrors_t
+{
+  lErrorOk_c = 0,
+  lErrorOutofMemory_c,
+  // ......定义状态码
+  // 最大枚举类型值
+  lErrorMaxError_c
+}
+
+/*! 定义服务接口函数, 'RD_' 为服务接口函数名前缀 */
+interface DEMO {
+
+    RD_demoHello(binary txInput) -> binary
+    
+    RD_demoHello2(in binary txInput,out binary txOutput) -> lockErrors_t    
+    
+    RD_demoHello3(in binary txInput,out int8[64] txOutput,out int32 size) -> lockErrors_t
+}
+oneway callback1_t(int32 a, int32 b)
+
+interface Core0Interface
+{
+  oneway myFun(in callback1_t pCallback1_t)
+
+  callback1_t callback1; // Function declaration
+}
