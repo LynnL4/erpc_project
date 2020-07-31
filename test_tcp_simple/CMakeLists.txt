@@ -6,7 +6,7 @@ set(ERPC_ROOT_DIR ${CMAKE_CURRENT_LIST_DIR}/../erpc/erpc_c)
 add_compile_options(-std=c++11)
 
 #erpc module
-include_directories(${ERPC_ROOT_DIR}/config)
+include_directories(${CMAKE_CURRENT_LIST_DIR})
 include_directories(${ERPC_ROOT_DIR}/infra)
 include_directories(${ERPC_ROOT_DIR}/port)
 include_directories(${ERPC_ROOT_DIR}/setup)
